@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocolo Hormonal Natural | Dra. Camila Rocha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0D0D0D;
+      --bg-secondary: #141414;
+      --bg-card: #1A1A1A;
+      --bg-elevated: #222222;
+      --gold: #C9A84C;
+      --gold-light: #E2C06A;
+      --gold-dark: #A8852F;
+      --emerald: #2ECC71;
+      --emerald-dark: #27AE60;
+      --emerald-glow: rgba(46, 204, 113, 0.2);
+      --blue: #3498DB;
+      --orange: #E67E22;
+      --purple: #9B59B6;
+      --text-primary: #F5F0E8;
+      --text-secondary: #B8A89A;
+      --text-muted: #7A6E66;
+      --border: rgba(201, 168, 76, 0.2);
+      --border-strong: rgba(201, 168, 76, 0.5);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
+    p { font-family: 'Inter', sans-serif; }
+
+    .gold { color: var(--gold); }
+    .emerald { color: var(--emerald); }
+    .italic { font-style: italic; }
+
+    /* ─── URGENCY BAR ─── */
+    .urgency-bar {
+      background: linear-gradient(135deg, #8B0000 0%, #B22222 50%, #8B0000 100%);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,100,100,0.3);
+    }
+    .urgency-bar span { color: #FFD700; font-weight: 700; }
+    #countdown { font-family: 'Inter', monospace; font-weight: 700; color: #FFD700; font-size: 15px; letter-spacing: 0.08em; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 60px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 80% 100%, rgba(46,204,113,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border-strong);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before { content: '✦'; }
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1.08;
+      max-width: 900px;
+      margin-bottom: 28px;
+      background: linear-gradient(135deg, #F5F0E8 30%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+      -webkit-text-fill-color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 22px);
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .hero-sub strong { color: var(--text-primary); font-weight: 600; }
+    .social-proof-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+    .sp-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .sp-item .icon { font-size: 18px; }
+    .sp-count { color: var(--gold); font-weight: 700; font-size: 15px; }
+
+    /* ─── SECTION BASICS ─── */
+    section { position: relative; z-index: 1; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .section-inner.narrow { max-width: 820px; }
+    .section-title {
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 17px;
+      max-width: 600px;
+      margin: 0 auto 52px;
+      line-height: 1.6;
+    }
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 16px auto 24px;
+      border-radius: 2px;
+    }
+    .label-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── PAIN SECTION ─── */
+    .pain-section { background: var(--bg-secondary); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+    .pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,60,60,0.12);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pain-item:hover { border-color: rgba(255,60,60,0.3); transform: translateY(-2px); }
+    .pain-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .pain-text { font-size: 15px; color: var(--text-secondary); line-height: 1.55; }
+    .pain-text strong { color: var(--text-primary); display: block; margin-bottom: 3px; font-size: 16px; }
+
+    /* ─── TURN SECTION ─── */
+    .turn-section { background: var(--bg-primary); }
+    .turn-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.07), rgba(46,204,113,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 52px 44px;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .turn-box h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 24px;
+    }
+    .turn-box p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .turn-box p strong { color: var(--text-primary); }
+
+    /* ─── AUTHOR SECTION ─── */
+    .author-section { background: var(--bg-secondary); }
+    .author-card {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .author-avatar {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(46,204,113,0.1));
+      border: 2px solid var(--border-strong);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+      position: relative;
+    }
+    .author-avatar::after {
+      content: '✦';
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #000;
+    }
+    .author-info { flex: 1; min-width: 260px; }
+    .author-name { font-size: 32px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+    .author-title { font-size: 14px; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+    .author-bio { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; }
+    .author-bio strong { color: var(--text-primary); }
+    .author-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cred-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* ─── INCLUDES SECTION ─── */
+    .includes-section { background: var(--bg-primary); }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .include-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .include-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .include-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+    .include-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .include-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+    .include-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ─── PHASES SECTION ─── */
+    .phases-section { background: var(--bg-secondary); }
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 12px;
+    }
+    .phase-card {
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .phase-card:hover { transform: translateY(-6px); }
+    .phase-card.blue { background: linear-gradient(135deg, rgba(52,152,219,0.15), rgba(52,152,219,0.05)); border: 1px solid rgba(52,152,219,0.3); }
+    .phase-card.green { background: linear-gradient(135deg, rgba(46,204,113,0.15), rgba(46,204,113,0.05)); border: 1px solid rgba(46,204,113,0.3); }
+    .phase-card.orange { background: linear-gradient(135deg, rgba(230,126,34,0.15), rgba(230,126,34,0.05)); border: 1px solid rgba(230,126,34,0.3); }
+    .phase-card.purple { background: linear-gradient(135deg, rgba(155,89,182,0.15), rgba(155,89,182,0.05)); border: 1px solid rgba(155,89,182,0.3); }
+    .phase-num {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+    .phase-card.blue .phase-num { color: var(--blue); }
+    .phase-card.green .phase-num { color: var(--emerald); }
+    .phase-card.orange .phase-num { color: var(--orange); }
+    .phase-card.purple .phase-num { color: var(--purple); }
+    .phase-icon { font-size: 44px; margin-bottom: 16px; display: block; }
+    .phase-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .phase-card.blue .phase-title { color: var(--blue); }
+    .phase-card.green .phase-title { color: var(--emerald); }
+    .phase-card.orange .phase-title { color: var(--orange); }
+    .phase-card.purple .phase-title { color: var(--purple); }
+    .phase-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .phase-days {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .phase-card.blue .phase-days { background: rgba(52,152,219,0.15); color: var(--blue); }
+    .phase-card.green .phase-days { background: rgba(46,204,113,0.15); color: var(--emerald); }
+    .phase-card.orange .phase-days { background: rgba(230,126,34,0.15); color: var(--orange); }
+    .phase-card.purple .phase-days { background: rgba(155,89,182,0.15); color: var(--purple); }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section { background: var(--bg-primary); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testimonial-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      color: rgba(201,168,76,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .stars { color: #FFD700; font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+    .testimonial-text strong { color: var(--gold); font-style: normal; }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .author-initials {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #000; flex-shrink: 0;
+    }
+    .author-meta strong { display: block; font-size: 15px; font-weight: 700; }
+    .author-meta span { font-size: 13px; color: var(--text-muted); }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46,204,113,0.12);
+      border: 1px solid rgba(46,204,113,0.25);
+      color: var(--emerald);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-top: 6px;
+    }
+
+    /* ─── FOR WHO ─── */
+    .forwhom-section { background: var(--bg-secondary); }
+    .forwhom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    @media(max-width: 600px) { .forwhom-grid { grid-template-columns: 1fr; } }
+    .forwhom-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .forwhom-card.yes { border: 1px solid rgba(46,204,113,0.3); }
+    .forwhom-card.no { border: 1px solid rgba(255,60,60,0.15); }
+    .forwhom-card h3 {
+      font-size: 18px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .forwhom-card.yes h3 { color: var(--emerald); }
+    .forwhom-card.no h3 { color: #E74C3C; }
+    .forwhom-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .forwhom-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .forwhom-list li::before { flex-shrink: 0; margin-top: 1px; font-size: 16px; }
+    .forwhom-card.yes .forwhom-list li::before { content: '✓'; color: var(--emerald); }
+    .forwhom-card.no .forwhom-list li::before { content: '✗'; color: #E74C3C; }
+
+    /* ─── BONUS SECTION ─── */
+    .bonus-section { background: var(--bg-primary); }
+    .bonus-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .bonus-header .bonus-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .bonus-card {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .bonus-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .bonus-card::after {
+      content: 'BÔNUS';
+      position: absolute;
+      top: 14px; right: -18px;
+      background: var(--gold);
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 28px;
+      transform: rotate(45deg);
+    }
+    .bonus-icon { font-size: 38px; margin-bottom: 16px; display: block; }
+    .bonus-title { font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+    .bonus-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ─── PRICING ─── */
+    .pricing-section { background: var(--bg-secondary); }
+    .pricing-card {
+      max-width: 620px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 52px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(201,168,76,0.1);
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .best-value {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .pricing-title { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+    .price-crossed {
+      font-size: 20px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 6px;
+    }
+    .price-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .price-currency { font-size: 28px; font-weight: 700; color: var(--gold); margin-top: 10px; }
+    .price-value { font-size: 80px; font-weight: 900; color: var(--gold); line-height: 1; font-family: 'Playfair Display', serif; }
+    .price-cents { font-size: 28px; font-weight: 700; color: var(--gold); margin-top: 10px; }
+    .price-note { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+    .price-comparison {
+      background: rgba(46,204,113,0.08);
+      border: 1px solid rgba(46,204,113,0.2);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--emerald);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+    .price-comparison span { color: var(--text-secondary); font-weight: 400; }
+    .includes-list-small {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .includes-list-small li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .includes-list-small li::before {
+      content: '✓';
+      color: var(--emerald);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ─── CTA BUTTON ─── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #2ECC71, #27AE60);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 20px 44px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 32px rgba(46,204,113,0.35), 0 0 0 0 rgba(46,204,113,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      border: none;
+      animation: pulse-cta 2.5s infinite;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 48px rgba(46,204,113,0.5), 0 0 0 8px rgba(46,204,113,0.1);
+      animation: none;
+    }
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 8px 32px rgba(46,204,113,0.35), 0 0 0 0 rgba(46,204,113,0.3); }
+      50% { box-shadow: 0 8px 32px rgba(46,204,113,0.35), 0 0 0 12px rgba(46,204,113,0); }
+    }
+    .cta-btn-lg { font-size: 20px; padding: 22px 56px; }
+    .cta-secure { font-size: 12px; color: var(--text-muted); margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+    /* ─── GUARANTEE ─── */
+    .guarantee-section { background: var(--bg-primary); }
+    .guarantee-box {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 2px dashed rgba(46,204,113,0.3);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .guarantee-icon { font-size: 72px; margin-bottom: 20px; }
+    .guarantee-box h2 { font-size: 36px; margin-bottom: 16px; color: var(--emerald); }
+    .guarantee-box p { font-size: 17px; color: var(--text-secondary); line-height: 1.75; max-width: 560px; }
+    .guarantee-box p strong { color: var(--text-primary); }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta { background: linear-gradient(135deg, #0A0A0A, #111, #0A0A0A); padding: 100px 24px; text-align: center; }
+    .final-cta h2 { font-size: clamp(32px, 5vw, 58px); max-width: 800px; margin: 0 auto 24px; line-height: 1.12; }
+    .final-cta p { font-size: 18px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 40px; line-height: 1.65; }
+
+    /* ─── FAQ ─── */
+    .faq-section { background: var(--bg-secondary); }
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(201,168,76,0.4); }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 28px;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .faq-question span { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+    .faq-arrow {
+      width: 28px; height: 28px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 28px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-answer { max-height: 500px; padding: 0 28px 22px; }
+    .faq-answer p { font-size: 15px; color: var(--text-secondary); line-height: 1.75; }
+    .faq-answer strong { color: var(--gold); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060606;
+      padding: 36px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    footer p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+    footer strong { color: var(--text-secondary); }
+
+    /* ─── FLOATING ARROW ─── */
+    .scroll-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 12px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+    .scroll-arrow svg { width: 24px; height: 24px; }
+
+    /* ─── GLOW DIVIDERS ─── */
+    .glow-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .author-card { flex-direction: column; align-items: center; text-align: center; }
+      .author-credentials { justify-content: center; }
+      .turn-box { padding: 36px 24px; }
+      .pricing-card { padding: 36px 24px; }
+      .guarantee-box { padding: 36px 24px; }
+      .cta-btn-lg { font-size: 17px; padding: 18px 36px; }
+    }
+    @media (max-width: 480px) {
+      .section-inner { padding: 60px 20px; }
+      .hero { padding: 60px 20px 50px; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero > * { animation: fadeInUp 0.7s ease backwards; }
+    .hero .hero-badge { animation-delay: 0.1s; }
+    .hero h1 { animation-delay: 0.25s; }
+    .hero .hero-sub { animation-delay: 0.4s; }
+    .hero .social-proof-row { animation-delay: 0.55s; }
+    .hero .cta-btn { animation-delay: 0.7s; }
+    .hero .scroll-arrow { animation-delay: 0.85s; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     URGENCY BAR
+═══════════════════════════════════════════════ -->
+<div class="urgency-bar">
+  🔥 <span>OFERTA ESPECIAL DE LANÇAMENTO</span> — Acesso imediato por apenas <span>R$ 47,00</span> — Encerra em: <span id="countdown">00:00:00</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">Método Cientificamente Comprovado</div>
+
+  <h1>
+    Você Não Está <em>Engordando</em>.<br>
+    Seus Hormônios Estão<br>
+    <em>Pedindo Socorro.</em>
+  </h1>
+
+  <p class="hero-sub">
+    O <strong>Protocolo Hormonal Natural</strong> é o método que mais de 4.200 mulheres usaram para transformar o corpo em 30 dias — <strong>sem remédio, sem fome e sem abrir mão da vida</strong>.
+  </p>
+
+  <div class="social-proof-row">
+    <div class="sp-item">
+      <span class="icon">⭐</span>
+      <span><span class="sp-count">4.8/5</span> de avaliação</span>
+    </div>
+    <div class="sp-item">
+      <span class="icon">👩</span>
+      <span><span class="sp-count">4.200+</span> mulheres transformadas</span>
+    </div>
+    <div class="sp-item">
+      <span class="icon">🔬</span>
+      <span>Base <span class="sp-count">100%</span> científica</span>
+    </div>
+  </div>
+
+  <a href="https://pay.cakto.com.br/32dfpaw_853407" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-lg">
+    ➜ Quero Transformar Meu Corpo Agora
+  </a>
+  <p class="cta-secure" style="margin-bottom: 32px;">🔒 Pagamento 100% seguro · Acesso imediato · Garantia de 7 dias</p>
+
+  <div class="scroll-arrow">
+    <span>Descubra mais</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     DOR
+═══════════════════════════════════════════════ -->
+<section class="pain-section">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 8px;">
+      <span class="label-tag">Isso ressoa com você?</span>
+    </div>
+    <h2 class="section-title">
+      Você Faz <span class="gold">Tudo Certo</span><br>e o Corpo Não Responde?
+    </h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Não é fraqueza. Não é falta de esforço. Estas são as queixas mais comuns de mulheres acima dos 40:</p>
+
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="pain-icon">😞</div>
+        <div class="pain-text">
+          <strong>A balança não sai do lugar</strong>
+          Você come pouco, se esforça, mas o peso parece colado. Como se o seu metabolismo tivesse desistido de você.
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">😴</div>
+        <div class="pain-text">
+          <strong>Cansaço que não passa</strong>
+          Acorda exausta. Até depois de dormir 8 horas, a energia não volta. Café é o único combustível que ainda funciona.
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🤯</div>
+        <div class="pain-text">
+          <strong>Inchaço sem explicação</strong>
+          Barriga que nunca desincha, cara inchada de manhã, sensação de reter tudo que come. Ninguém te explica por quê.
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">😤</div>
+        <div class="pain-text">
+          <strong>Irritação e oscilação de humor</strong>
+          Uma hora bem, outra hora no limite. Chora sem motivo. Se irrita com tudo. Sente que "não é você mesma".
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🍫</div>
+        <div class="pain-text">
+          <strong>Compulsão por doce à tarde</strong>
+          Aquela vontade incontrolável de 15h que destrói qualquer dieta. Não é falta de força de vontade — é cortisol e insulina.
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🪞</div>
+        <div class="pain-text">
+          <strong>"Não me reconheço mais"</strong>
+          Olha no espelho e vê uma estranha. Sente que seu corpo te traiu. E ninguém ao redor parece entender o que está passando.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     VIRADA
+═══════════════════════════════════════════════ -->
+<section class="turn-section">
+  <div class="section-inner narrow">
+    <div class="turn-box">
+      <span class="label-tag" style="margin-bottom: 20px; display: inline-block;">A Verdade Científica</span>
+      <h2>
+        Isso <span class="gold italic">Não É Culpa Sua.</span><br>
+        É Hormonal.
+      </h2>
+      <div class="section-divider" style="margin-top: 20px; margin-bottom: 28px;"></div>
+      <p>
+        Depois dos 40, o corpo feminino passa por uma <strong>revolução hormonal silenciosa</strong>. Estrogênio cai. Progesterona oscila. Cortisol dispara. Insulina fica resistente. <strong>Seu metabolismo muda de regras — e ninguém te avisou.</strong>
+      </p>
+      <p>
+        As dietas que funcionavam aos 30 <strong>não funcionam mais</strong> porque o problema não é calórico. É <strong>bioquímico.</strong> Enquanto você corta carboidrato e passa fome, os hormônios continuam desregulados — e o corpo continua acumulando gordura como mecanismo de defesa.
+      </p>
+      <p>
+        <strong>A solução não é se punir mais. É entender o seu corpo e trabalhar com ele.</strong> É exatamente isso que o Protocolo Hormonal Natural faz — em 30 dias, fase por fase, sem privação, sem sofrimento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     AUTORA
+═══════════════════════════════════════════════ -->
+<section class="author-section">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <span class="label-tag">Quem Criou Este Protocolo</span>
+    </div>
+    <div class="author-card">
+      <div class="author-avatar">👩‍⚕️</div>
+      <div class="author-info">
+        <h3 class="author-name">Dra. Camila Rocha</h3>
+        <p class="author-title">Nutricionista Funcional · Especialista em Saúde Hormonal Feminina</p>
+        <p class="author-bio">
+          Há mais de <strong>12 anos</strong>, a Dra. Camila dedica sua prática clínica a um único objetivo: ajudar mulheres a <strong>reconquistarem o controle do próprio corpo</strong> — especialmente após os 40, quando os hormônios mudam tudo.
+        </p>
+        <p class="author-bio">
+          Depois de atender mais de <strong>3.800 pacientes</strong> e frustrar-se com protocolos genéricos que ignoravam a fisiologia feminina, ela desenvolveu um método próprio baseado em <strong>regulação hormonal, nutrição funcional e movimento inteligente.</strong>
+        </p>
+        <p class="author-bio">
+          O resultado? Mulheres que perderam de <strong>4 a 11kg em 30 dias</strong> — sem remédio, sem milagre. Só ciência aplicada com cuidado.
+        </p>
+        <div class="author-credentials">
+          <span class="cred-badge">🎓 CRN Ativa</span>
+          <span class="cred-badge">🔬 Pós em Nutrição Funcional</span>
+          <span class="cred-badge">👩 +3.800 Pacientes</span>
+          <span class="cred-badge">📚 12 anos de clínica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     INCLUSO
+═══════════════════════════════════════════════ -->
+<section class="includes-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="label-tag">O Que Está Incluído</span>
+    </div>
+    <h2 class="section-title">
+      Tudo Que Você Precisa,<br>
+      <span class="gold">Em Um Único Lugar</span>
+    </h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Não é um PDF genérico. É um sistema completo de transformação hormonal, pensado para funcionar na vida real de uma mulher de 40+.</p>
+
+    <div class="includes-grid">
+      <div class="include-card">
+        <span class="include-icon">📖</span>
+        <h3 class="include-title">Ebook Completo (8 Capítulos)</h3>
+        <p class="include-desc">Fisiologia feminina pós-40 explicada de forma clara e aplicável. Entenda seu corpo de uma vez por todas e nunca mais caia em dietas que ignoram sua biologia.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">🗓️</span>
+        <h3 class="include-title">As 4 Fases do Protocolo</h3>
+        <p class="include-desc">Reset Hormonal, Ativação Metabólica, Queima Acelerada e Consolidação. Um plano dia a dia, com começo, meio e fim — sem achismo.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">🍽️</span>
+        <h3 class="include-title">Cardápios e Receitas por Fase</h3>
+        <p class="include-desc">Receitas práticas, saborosas e otimizadas para cada momento do protocolo. Sem fome, sem sofrimento. Só nutrição que funciona.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">⏱️</span>
+        <h3 class="include-title">Exercícios de 13 Minutos/Dia</h3>
+        <p class="include-desc">Protocolo de movimento desenhado para ativar o metabolismo hormonal feminino — sem precisar ir à academia, sem equipamentos.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">🌿</span>
+        <h3 class="include-title">Guia de Suplementação Natural</h3>
+        <p class="include-desc">Quais suplementos realmente fazem diferença para a saúde hormonal feminina, como tomar e quando — baseado em evidências, não em hype.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">🛒</span>
+        <h3 class="include-title">Lista de Compras com Checkboxes</h3>
+        <p class="include-desc">Tudo que você precisa comprar, organizado por semana. Chega de perder tempo no mercado sem saber o que levar.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">📱</span>
+        <h3 class="include-title">Diário Interativo de 30 Dias</h3>
+        <p class="include-desc">App web exclusivo integrado ao ebook. Você preenche diretamente no navegador, salva automaticamente. Seu progresso sempre com você.</p>
+      </div>
+      <div class="include-card">
+        <span class="include-icon">✅</span>
+        <h3 class="include-title">Checklist por Fase</h3>
+        <p class="include-desc">Saiba exatamente o que fazer em cada dia. Sem confusão, sem dúvida. Só executar e ver os resultados aparecerem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     4 FASES
+═══════════════════════════════════════════════ -->
+<section class="phases-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="label-tag">O Método</span>
+    </div>
+    <h2 class="section-title">
+      As <span class="gold">4 Fases</span> do<br>Protocolo Hormonal Natural
+    </h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Cada fase tem uma função biológica específica. Não pule etapas — elas foram desenhadas para se complementar.</p>
+
+    <div class="phases-grid">
+      <div class="phase-card blue">
+        <span class="phase-num">Fase 1 · Dias 1–7</span>
+        <span class="phase-icon">🧊</span>
+        <h3 class="phase-title">Reset Hormonal</h3>
+        <p class="phase-desc">O ponto de partida. Reduzimos inflamação sistêmica, eliminamos os principais disruptores hormonais da sua alimentação e preparamos o organismo para responder ao protocolo.</p>
+        <span class="phase-days">7 dias de preparação</span>
+      </div>
+      <div class="phase-card green">
+        <span class="phase-num">Fase 2 · Dias 8–15</span>
+        <span class="phase-icon">⚡</span>
+        <h3 class="phase-title">Ativação Metabólica</h3>
+        <p class="phase-desc">Com os hormônios começando a se equilibrar, ativamos o metabolismo com nutrição funcional estratégica. Você começa a sentir energia real — sem estimulantes.</p>
+        <span class="phase-days">8 dias de ativação</span>
+      </div>
+      <div class="phase-card orange">
+        <span class="phase-num">Fase 3 · Dias 16–23</span>
+        <span class="phase-icon">🔥</span>
+        <h3 class="phase-title">Queima Acelerada</h3>
+        <p class="phase-desc">O pico do protocolo. Com o ambiente hormonal preparado, o corpo entra em modo de queima eficiente. A maioria das mulheres vê os resultados mais visíveis nesta fase.</p>
+        <span class="phase-days">8 dias de resultado</span>
+      </div>
+      <div class="phase-card purple">
+        <span class="phase-num">Fase 4 · Dias 24–30</span>
+        <span class="phase-icon">🌸</span>
+        <h3 class="phase-title">Consolidação</h3>
+        <p class="phase-desc">A fase mais negligenciada nas dietas comuns — e a mais importante. Aqui garantimos que os resultados sejam permanentes, e que você nunca mais precise recomeçar do zero.</p>
+        <span class="phase-days">7 dias de manutenção</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     DEPOIMENTOS
+═══════════════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="label-tag">Resultados Reais</span>
+    </div>
+    <h2 class="section-title">
+      Elas Também Duvidaram.<br>
+      Até <span class="gold">Começarem.</span>
+    </h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-bottom: 44px;">Histórias de mulheres que estavam exatamente onde você está agora.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Passei 3 anos tentando emagrecer sem entender por que não funcionava. Em 30 dias com o protocolo, perdi <strong>7,5 kg</strong> — mas o que mais me impressionou foi a energia. Me sinto 10 anos mais jovem. Finalmente alguém explicou que meus hormônios estavam sabotando tudo."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-initials">MF</div>
+          <div class="author-meta">
+            <strong>Maria Fernanda S.</strong>
+            <span>44 anos · Professora · São Paulo</span>
+            <div class="result-badge">✓ -7,5 kg em 30 dias</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "Eu era cética. Já tentei de tudo — Low carb, jejum intermitente, shakes. Nada durava. O Protocolo Hormonal é diferente porque te <strong>ensina a entender o seu corpo</strong>. Perdi 6 kg, mas o inchaço sumiu logo na primeira semana. Achei que estava sonhando."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-initials">CR</div>
+          <div class="author-meta">
+            <strong>Claudia R.</strong>
+            <span>48 anos · Enfermeira · Belo Horizonte</span>
+            <div class="result-badge">✓ -6 kg e sem inchaço</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">
+          "O que me surpreendeu foi como os exercícios de 13 minutos foram suficientes. Achei que precisava passar horas na academia. Perdi <strong>9 kg em 30 dias</strong>, meu humor melhorou completamente e meu médico ficou surpreso com os resultados nos exames."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-initials">AP</div>
+          <div class="author-meta">
+            <strong>Ana Paula M.</strong>
+            <span>52 anos · Advogada · Rio de Janeiro</span>
+            <div class="result-badge">✓ -9 kg · Exames melhorados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     PARA QUEM É
+═══════════════════════════════════════════════ -->
+<section class="forwhom-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="label-tag">Seja Honesta Consigo Mesma</span>
+    </div>
+    <h2 class="section-title">Para Quem É<br><span class="gold">Este Protocolo?</span></h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-bottom: 44px;">Sem enrolação. Veja se este é o método certo para você.</p>
+
+    <div class="forwhom-grid">
+      <div class="forwhom-card yes">
+        <h3>✅ Este protocolo É para você se...</h3>
+        <ul class="forwhom-list">
+          <li>Você tem 40+ e sente que o corpo mudou de regras</li>
+          <li>Já tentou dietas e não conseguiu manter os resultados</li>
+          <li>Sente inchaço, cansaço e oscilação de humor constante</li>
+          <li>Quer emagrecer sem passar fome ou sofrer</li>
+          <li>Está disposta a seguir um método por 30 dias</li>
+          <li>Quer entender seu corpo, não só seguir uma lista</li>
+        </ul>
+      </div>
+      <div class="forwhom-card no">
+        <h3>❌ Este protocolo NÃO é para você se...</h3>
+        <ul class="forwhom-list">
+          <li>Você busca uma solução mágica sem nenhum esforço</li>
+          <li>Não quer mudar nenhum hábito alimentar</li>
+          <li>Está grávida ou amamentando (consulte seu médico)</li>
+          <li>Quer resultado sem seguir o protocolo por completo</li>
+          <li>Prefere esperar o "momento certo" para começar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     BONUS
+═══════════════════════════════════════════════ -->
+<section class="bonus-section">
+  <div class="section-inner">
+    <div class="bonus-header">
+      <div class="bonus-label">🎁 Bônus Exclusivos Inclusos</div>
+      <h2 class="section-title">
+        Não Apenas um Ebook.<br>
+        <span class="gold">Um Ecossistema Completo.</span>
+      </h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Estes bônus estão integrados ao protocolo — não são brindes genéricos. Foram criados para garantir que você não tenha desculpa para não ter sucesso.</p>
+    </div>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <span class="bonus-icon">📲</span>
+        <h3 class="bonus-title">App de Acompanhamento Interativo</h3>
+        <p class="bonus-desc">Exclusivo e incluso no ebook. Você preenche seu progresso diretamente no navegador — sem baixar app, sem cadastro. Tudo salva automaticamente. Seu diário de 30 dias sempre ao alcance.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📊</span>
+        <h3 class="bonus-title">Quadro de Movimento Semanal</h3>
+        <p class="bonus-desc">Organize seus exercícios de 13 minutos por semana com o quadro visual. Marque, acompanhe e veja sua consistência crescendo — porque consistência visível se torna hábito.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📈</span>
+        <h3 class="bonus-title">Tabela Comparativa Antes x Depois</h3>
+        <p class="bonus-desc">Registre medidas, peso, energia, humor e qualidade do sono no início e no final do protocolo. Ver sua própria transformação em dados é a motivação mais poderosa que existe.</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">📝</span>
+        <h3 class="bonus-title">Declaração de Compromisso</h3>
+        <p class="bonus-desc">Uma ferramenta psicológica comprovada. Mulheres que assinam a declaração têm 73% mais chances de completar o protocolo. Pesquisa de comportamento aplicada à sua transformação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     PREÇO
+═══════════════════════════════════════════════ -->
+<section class="pricing-section" id="checkout">
+  <div class="section-inner narrow">
+    <div style="text-align:center; margin-bottom: 8px;">
+      <span class="label-tag">Oferta de Lançamento</span>
+    </div>
+    <h2 class="section-title" style="margin-bottom: 40px;">
+      Invista em Você.<br>
+      <span class="gold">Uma Única Vez.</span>
+    </h2>
+
+    <div class="pricing-card">
+      <span class="best-value">✦ Acesso Completo + Todos os Bônus</span>
+      <h3 class="pricing-title">Protocolo Hormonal Natural</h3>
+
+      <p class="price-crossed">De R$ 197,00</p>
+      <div class="price-main">
+        <span class="price-currency">R$</span>
+        <span class="price-value">47</span>
+        <span class="price-cents">,00</span>
+      </div>
+      <p class="price-note">pagamento único · acesso imediato e vitalício</p>
+
+      <div class="price-comparison">
+        ✓ <span>Menos do que um jantar fora. Mas com resultado para a vida toda.</span>
+      </div>
+
+      <ul class="includes-list-small">
+        <li>Ebook completo com 8 capítulos científicos</li>
+        <li>As 4 fases completas com cardápios e receitas</li>
+        <li>Protocolo de exercícios de 13 minutos/dia</li>
+        <li>Guia de suplementação natural</li>
+        <li>Lista de compras interativa</li>
+        <li>Diário interativo de 30 dias (app web incluso)</li>
+        <li>Checklist por fase + Declaração de Compromisso</li>
+        <li>Quadro de Movimento + Tabela Antes x Depois</li>
+      </ul>
+
+      <a href="https://pay.cakto.com.br/32dfpaw_853407" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-lg" style="width: 100%; max-width: 460px;">
+        ➜ QUERO MEU ACESSO AGORA — R$ 47
+      </a>
+      <p class="cta-secure">🔒 Pagamento 100% seguro via Cakto · Cartão, Pix ou Boleto</p>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     GARANTIA
+═══════════════════════════════════════════════ -->
+<section class="guarantee-section">
+  <div class="section-inner narrow">
+    <div class="guarantee-box">
+      <div class="guarantee-icon">🛡️</div>
+      <h2>Garantia Incondicional<br>de 7 Dias</h2>
+      <div class="section-divider" style="margin: 20px auto;"></div>
+      <p>
+        Você tem <strong>7 dias completos</strong> para testar o Protocolo Hormonal Natural. Se por qualquer motivo — <strong>qualquer que seja</strong> — você não estiver satisfeita, basta enviar um e-mail e devolvemos 100% do seu dinheiro. <strong>Sem perguntas. Sem burocracia. Sem enrolação.</strong>
+      </p>
+      <br>
+      <p>
+        O risco é <strong>zero</strong>. O único risco real é continuar como está, esperando que algo mude sem mudar nada.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════════ -->
+<div class="final-cta">
+  <span class="label-tag" style="margin-bottom: 20px;">Sua Hora é Agora</span>
+  <h2>
+    Em 30 Dias, Você Pode<br>
+    Ser <span class="gold italic">Uma Mulher Diferente.</span>
+  </h2>
+  <p>
+    Ou pode continuar tentando as mesmas soluções que nunca funcionaram. A escolha é sua. Mas se você chegou até aqui, algo em você já sabe a resposta.
+  </p>
+  <a href="https://pay.cakto.com.br/32dfpaw_853407" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-lg">
+    ➜ Sim, Quero Transformar Meu Corpo — R$ 47
+  </a>
+  <p class="cta-secure" style="color: var(--text-muted); font-size: 13px; margin-top: 20px;">
+    🔒 Acesso imediato · Garantia de 7 dias · Pagamento 100% seguro
+  </p>
+
+  <!-- Mini testimonial strip -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top: 52px; max-width: 700px; margin-left: auto; margin-right: auto;">
+    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 10px 20px; font-size: 13px; color: var(--text-secondary);">👩 "Perdi 7,5 kg em 30 dias" · Maria F.</div>
+    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 10px 20px; font-size: 13px; color: var(--text-secondary);">👩 "O inchaço sumiu na primeira semana" · Claudia R.</div>
+    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 10px 20px; font-size: 13px; color: var(--text-secondary);">👩 "Me sinto 10 anos mais jovem" · Ana Paula M.</div>
+  </div>
+</div>
+
+<div class="glow-divider"></div>
+
+<!-- ═══════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <span class="label-tag">Dúvidas Frequentes</span>
+    </div>
+    <h2 class="section-title">Perguntas & Respostas</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-bottom: 44px;">Respondemos tudo com transparência. Sem enrolação.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Funciona para mulheres na menopausa ou perimenopausa?</span>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>Sim — e especialmente para elas. O protocolo foi desenvolvido exatamente para este cenário hormonal. <strong>A queda de estrogênio e a resistência à insulina típicas da menopausa são abordadas diretamente nas fases 1 e 2</strong>. Muitas das pacientes da Dra. Camila estavam em plena menopausa quando completaram o protocolo com excelentes resultados.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Preciso fazer academia ou ter equipamentos especiais?</span>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutamente não. O protocolo de exercícios de 13 minutos foi projetado para ser realizado <strong>em casa, sem equipamentos, sem necessidade de academia</strong>. Os movimentos são funcionais, de baixo impacto e otimizados para ativar o metabolismo hormonal — não para exaurir o corpo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>A dieta é muito restritiva? Vou passar fome?</span>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>Não. Diferente de dietas restritivas que sabotam os hormônios, o Protocolo Hormonal Natural é baseado em <strong>nutrição funcional estratégica — não em corte calórico extremo</strong>. Você come de forma inteligente, com cardápios variados e saborosos. O objetivo é regular a insulina e o cortisol, não passar fome. Mulheres que completam o protocolo frequentemente relatam que <strong>nunca sentiram fome</strong> ao longo dos 30 dias.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Como funciona o acesso? Preciso baixar algum aplicativo?</span>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>Não precisa baixar nada. Após a confirmação do pagamento, você recebe acesso imediato por e-mail. <strong>O ebook é acessível pelo navegador no computador, tablet ou celular</strong>. O diário interativo e o app de acompanhamento também funcionam 100% no navegador — sem instalação, sem cadastro adicional, com salvamento automático.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>E se eu não gostar? Como funciona a garantia?</span>
+          <div class="faq-arrow">+</div>
+        </div>
+        <div class="faq-answer">
+          <p>A garantia é <strong>100% incondicional por 7 dias</strong>. Se por qualquer motivo você não estiver satisfeita, basta enviar um e-mail solicitando o reembolso. <strong>Devolveremos todo o seu dinheiro sem perguntas, sem justificativas, sem burocracia.</strong> Você não tem nenhum risco. Esse é o nosso compromisso com você.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 52px;">
+      <a href="https://pay.cakto.com.br/32dfpaw_853407" target="_blank" rel="noopener noreferrer" class="cta-btn">➜ Estou Pronta — Quero Começar Agora</a>
+      <p class="cta-secure" style="margin-top: 14px;">
+        🔒 Acesso imediato · 7 dias de garantia · R$ 47,00
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <p>
+    <strong>Protocolo Hormonal Natural</strong> — Dra. Camila Rocha · Nutricionista Funcional<br>
+    © 2026 Todos os direitos reservados.<br><br>
+    <span>Este produto é um infoproduto digital para fins educacionais e informativos. Não substitui consulta médica ou nutricional profissional. Resultados podem variar de pessoa para pessoa. Os depoimentos apresentados são de pacientes reais com resultados individuais. Antes de iniciar qualquer programa alimentar ou de exercícios, consulte seu médico.</span>
+  </p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  // ─── COUNTDOWN TIMER ───
+  (function() {
+    // Set 23 hours 47 min from now
+    var end = new Date().getTime() + (23 * 3600 + 47 * 60) * 1000;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function tick() {
+      var now = new Date().getTime();
+      var diff = end - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = '00:00:00';
+        return;
+      }
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('countdown').textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // ─── FAQ TOGGLE ───
+  function toggleFaq(el) {
+    var item = el.parentElement;
+    var isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    // Open if was closed
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ─── SCROLL REVEAL (lightweight) ───
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var style = document.createElement('style');
+    style.textContent = '.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; } .reveal.visible { opacity: 1; transform: none; }';
+    document.head.appendChild(style);
+
+    var targets = document.querySelectorAll(
+      '.include-card, .phase-card, .testimonial-card, .pain-item, .bonus-card, .forwhom-card'
+    );
+
+    targets.forEach(function(el, i) {
+      el.classList.add('reveal');
+      // stagger
+      el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(function(el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
